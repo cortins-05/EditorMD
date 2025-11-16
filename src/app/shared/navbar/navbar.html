@@ -1,0 +1,47 @@
+<!-- Navbar -->
+<nav id="navbar" (mouseleave)="ocultarSublista([lista1,lista2,lista3,lista4])">
+  <ul class="navbar-items flexbox-col">
+    <li class="navbar-logo flexbox-left" routerLink="">
+      <a class="navbar-item-inner flexbox">
+        <img src="logo.webp" class="rounded-full">
+      </a>
+    </li>
+    <li class="navbar-item flexbox-left flex-col flex" (mouseover)="mostrarSublista(lista1)">
+      <a class="navbar-item-inner flexbox-left" routerLink="file">
+        <div class="navbar-item-inner-icon-wrapper flexbox">
+         <fa-icon [icon]="faFile" />
+        </div>
+        <span class="link-text">File</span>
+      </a>
+      <app-subnavbar #lista1 [modelo]="1" >
+      </app-subnavbar>
+    </li>
+    <li class="navbar-item flexbox-left flex-col flex" (mouseover)="mostrarSublista(lista2)">
+      <a class="navbar-item-inner flexbox-left">
+        <div class="navbar-item-inner-icon-wrapper flexbox">
+         <fa-icon [icon]="faEdit" />
+        </div>
+        <span class="link-text">Edit</span>
+      </a>
+      <app-subnavbar #lista2 [modelo]="2" />
+    </li>
+    <li class="navbar-item flexbox-left flex-col flex" (mouseover)="mostrarSublista(lista3)">
+      <a class="navbar-item-inner flexbox-left">
+        <div class="navbar-item-inner-icon-wrapper flexbox">
+         <fa-icon [icon]="faView" />
+        </div>
+        <span class="link-text">Look</span>
+      </a>
+      <app-subnavbar #lista3 [modelo]="3" />
+    </li>
+    <li class="navbar-item flexbox-left flex-col flex" (mouseover)="mostrarSublista(lista4)">
+      <a class="navbar-item-inner flexbox-left">
+        <div class="navbar-item-inner-icon-wrapper flexbox">
+         <fa-icon [icon]="faConfig" />
+        </div>
+        <span class="link-text">Config</span>
+      </a>
+      <app-subnavbar #lista4 [modelo]="4" />
+    </li>
+  </ul>
+</nav>

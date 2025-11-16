@@ -1,0 +1,13 @@
+<div class="flex w-full gap-10">
+  <textarea
+    #editor
+    class="textarea textarea-ghost focus:outline-none overflow-y-scroll bg-black resize-none w-1/2 text-white text-2xl p-2"
+    placeholder="Empieza a crear!!!"
+    (keyup)="onInput($event)"
+  ></textarea>
+
+  <div
+    class="bg-black w-1/2 h-[90vh] overflow-y-scroll rounded p-2 text-white prose prose-invert"
+    [innerHTML]="contenido()"
+  ></div>
+</div>
