@@ -1,6 +1,6 @@
 import { NgClass } from '@angular/common';
 import { Component, inject, Input, input, InputSignal, signal, WritableSignal } from '@angular/core';
-import { RouterLink } from "@angular/router";
+import { Router, RouterLink } from "@angular/router";
 import { SaveAs } from '../../../services/save-as.service';
 import { ExportarPdf } from '../../../services/exportar-pdf.service';
 import { LookService } from '../../../services/look.service';
@@ -18,6 +18,7 @@ export class Subnavbar {
   servicioCompartido = inject(SaveAs);
   exportarPdf=inject(ExportarPdf);
   lookService = inject(LookService);
+  route = inject(Router);
 
   ngOnInit() {
     const savedTheme = localStorage.getItem('theme');
@@ -47,7 +48,7 @@ export class Subnavbar {
   abrirArchivo() {
     const input = document.createElement('input');
     input.type = 'file';
-    input.accept = '.md'; // Solo Markdown o texto
+    input.accept = '.md, .txt'; // Solo Markdown o texto
 
     input.onchange = (e: Event) => {
       const file = (e.target as HTMLInputElement).files?.[0];

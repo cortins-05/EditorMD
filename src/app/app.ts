@@ -9,5 +9,4 @@ import { Navbar } from './shared/navbar/navbar';
   styleUrl: './app.scss'
 })
 export class App {
-  protected readonly title = signal('TiendaOnline');
 }

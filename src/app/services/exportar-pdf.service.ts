@@ -68,13 +68,13 @@ export class ExportarPdf {
             text: el.innerText,
             color: '#fff',
             fontSize: 10,
-            font: 'Roboto'   // si tienes definida esta fuente
+            font: 'Roboto'
           }
         ]
       ]
     },
     layout: {
-      fillColor: () => '#000', // Fondo del bloque
+      fillColor: () => '#000', 
       paddingLeft: () => 10,
       paddingRight: () => 10,
       paddingTop: () => 8,

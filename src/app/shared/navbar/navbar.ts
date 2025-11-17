@@ -1,9 +1,9 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {faEye, faFile,faGear,faL,faPenToSquare} from "@fortawesome/free-solid-svg-icons";
 import { Subnavbar } from './subnavbar/subnavbar';
-import { NgClass } from '@angular/common';
-import { RouterLink } from "@angular/router";
+import { Router, RouterLink } from "@angular/router";
+import { SaveAs } from '../../services/save-as.service';
 
 @Component({
   selector: 'app-navbar',
@@ -17,6 +17,8 @@ export class Navbar {
   faView = faEye;
   faConfig = faGear;
 
+  servicioCompartido = inject(SaveAs);
+  route = inject(Router);
 
   sublistaVisible = signal(false);
 
@@ -29,4 +31,11 @@ export class Navbar {
       lista.visibleFalse();
     }
   }
+
+  comprobarArchivo(){
+    if(this.servicioCompartido.contenido()){
+      this.route.navigate(["file/open"]);
+    }
+  }
+
 }

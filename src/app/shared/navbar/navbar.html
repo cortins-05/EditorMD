@@ -7,7 +7,7 @@
       </a>
     </li>
     <li class="navbar-item flexbox-left flex-col flex hover:bg-primary" (mouseover)="mostrarSublista(lista1)">
-      <a class="navbar-item-inner flexbox-left" routerLink="file">
+      <a class="navbar-item-inner flexbox-left" (click)="comprobarArchivo()">
         <div class="navbar-item-inner-icon-wrapper flexbox">
          <fa-icon [icon]="faFile" />
         </div>

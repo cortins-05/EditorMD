@@ -14,14 +14,14 @@ export class OpenFilePage {
 
   utilidades = WriteUtils;
 
-  contenido: WritableSignal<string> = signal("");   // markdown
-  contenido2: WritableSignal<string> = signal("");  // html
+  contenido: WritableSignal<string> = signal("");  
+  contenido2: WritableSignal<string> = signal("");
 
   constructor(public editorService: SaveAs) {
 
     effect(() => {
-      const markdown = this.editorService.contenido();      // markdown
-      const html = this.editorService.contenido2();         // HTML ya generado
+      const markdown = this.editorService.contenido();
+      const html = this.editorService.contenido2();
       this.contenido.set(markdown);
       this.contenido2.set(html);
       this.actualizarPreview(this.contenido());
@@ -34,11 +34,11 @@ export class OpenFilePage {
 
     const html = this.utilidades.aplicarMarkdownInBlock(markdown);
 
-    // Actualizamos signals locales
+
     this.contenido.set(markdown);
     this.contenido2.set(html);
 
-    // Guardamos en el servicio igual que NewFilePage
+
     this.editorService.contenido.set(markdown);
     this.editorService.contenido2.set(html);
   }
