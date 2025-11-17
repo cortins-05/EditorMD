@@ -1,59 +1,80 @@
-# TiendaOnline
+# EditorDeArchivosMD
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.10.
+**EditorDeArchivosMD** es una aplicación desarrollada en Angular cuyo objetivo es proporcionar un entorno intuitivo para crear, editar, visualizar y exportar archivos **Markdown (.md)** y **texto plano (.txt)**.  
+El editor funciona completamente en el navegador y no requiere backend.
 
-## Development server
+## Descripción general
 
-To start a local development server, run:
+El proyecto se organiza en una arquitectura modular con componentes y servicios reutilizables. Incluye:
 
-```bash
-ng serve
-```
+- Editor Markdown con vista previa en tiempo real.
+- Apertura de archivos locales `.md` y `.txt`.
+- Guardado y guardado rápido directamente al disco.
+- Exportación del documento a PDF.
+- Uso de Angular Signals para el manejo del estado.
+- Servicios utilitarios para lectura, escritura y conversión.
+- Interfaz dividida entre área de escritura y vista previa renderizada.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Funcionalidades principales
 
-## Code scaffolding
+### ✏️ Editor en tiempo real
+El usuario escribe en un `<textarea>` y el contenido se transforma automáticamente a HTML para mostrar la vista previa.  
+Características soportadas:
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+- Encabezados Markdown
+- Negritas, cursivas, listas y otros formatos
+- Código inline y bloques
+- Renderizado instantáneo sin recarga
 
-```bash
-ng generate component component-name
-```
+### 📂 Apertura de archivos `.md` / `.txt`
+El sistema permite abrir archivos locales mediante un selector nativo.  
+Características:
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+- Uso de `FileReader` para leer texto.
+- Validación cuando no se selecciona archivo.
+- Carga automática del contenido en el editor.
 
-```bash
-ng generate --help
-```
+### 💾 Guardado y guardado rápido
+El editor permite dos modos de guardar:
 
-## Building
+#### Guardar como
+- Permite escoger el nombre del archivo.
+- Guarda como `.md` o `.txt` según preferencia.
 
-To build the project run:
+#### Guardar
+- Guarda directamente en el mismo archivo previamente abierto.
+- Si el documento es nuevo, se ejecuta “Guardar como”.
 
-```bash
-ng build
-```
+### 📄 Exportación a PDF
+El proyecto convierte el HTML renderizado en la vista previa a un archivo PDF.  
+Esto permite:
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+- Escribir en Markdown.
+- Renderizar como HTML.
+- Exportar como PDF con formato limpio.
 
-## Running unit tests
+### 🔧 Arquitectura interna
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+#### Servicios principales
+- **WriteUtils**: Manejo de descargas, blobs y utilidades de escritura.
+- **OpenFileService**: Lógica para abrir archivos locales.
+- **SaveAsService**: Manejo del guardado y guardado rápido.
+- **ExportarPdf**: Convierte y exporta el contenido a PDF.
 
-```bash
-ng test
-```
+#### Componentes
+- Página principal con editor + vista previa.
+- Página de apertura de archivos.
+- Página de exportación.
 
-## Running end-to-end tests
+#### Utils
+Helpers comunes para la conversión, lectura y escritura de archivos.
 
-For end-to-end (e2e) testing, run:
+## Objetivo del proyecto
 
-```bash
-ng e2e
-```
+El propósito de este editor es ofrecer una herramienta accesible y potente para:
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+- Crear notas y documentación.
+- Visualizar Markdown de forma instantánea.
+- Exportar texto a formatos útiles.
+- Trabajar con archivos locales sin depender de servidores.
 
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
