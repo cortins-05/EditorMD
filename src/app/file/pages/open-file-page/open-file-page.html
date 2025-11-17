@@ -1,14 +1,17 @@
-<div class="flex w-full gap-10">
+<div class="flex w-full gap-10 flex-col md:flex-row pl-20 md:pl-0">
   <textarea
     #editor
-    class="textarea textarea-ghost focus:outline-none overflow-y-scroll bg-black resize-none w-1/2 text-white text-2xl p-2"
-    placeholder="Empieza a crear!!!"
-    [value]="contenido2()"
+    [ngClass]="preview.preview()
+      ? ['textarea','textarea-ghost','focus:outline-none','overflow-y-scroll','bg-primary','text-primary-content','resize-none','md:w-1/2','text-2xl','p-4','h-[90vh]']
+      : ['textarea','textarea-ghost','focus:outline-none','overflow-y-scroll','bg-primary','text-primary-content','resize-none','md:w-full','h-[90vh]','text-2xl','p-4']"
+    [value]="contenido()"
     (keyup)="onInput($event)"
+    [style.fontSize.px]="fontSize.fontSize()"
   ></textarea>
 
   <div
-    class="bg-black w-1/2 h-[90vh] overflow-y-scroll rounded p-2 text-white prose prose-invert"
-    [innerHTML]="contenido()"
+    class="bg-primary text-primary-content md:w-1/2 h-[90vh] overflow-y-scroll rounded-3xl p-4 prose prose-invert"
+    [ngClass]="{ 'hidden': !preview.preview() }"
+    [innerHTML]="contenido2()"
   ></div>
 </div>

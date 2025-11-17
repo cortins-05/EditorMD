@@ -26,91 +26,17 @@
       </a>
     </li>
     <li class="list-row">
-      <a (click)="guardarComo()">
+      <a (click)="descargarPdf()">
         <div>
-          <div>Guardar como</div>
-          <div class="text-xs uppercase font-semibold opacity-60">Guardar con otro nombre o en otra ubicación</div>
-        </div>
-      </a>
-    </li>
-    <li class="list-row">
-      <a [routerLink]="'file/close'">
-        <div>
-          <div>Cerrar/Exportar</div>
-          <div class="text-xs uppercase font-semibold opacity-60">Cerrar el archivo actual o exportarlo</div>
-        </div>
-      </a>
-    </li>
-  }
-  @if(modelo()==2){
-    <li class="list-row">
-      <a >
-        <div>
-          <div>Deshacer</div>
-          <div class="text-xs uppercase font-semibold opacity-60">Deshacer la última acción</div>
-        </div>
-      </a>
-    </li>
-    <li class="list-row">
-      <a >
-        <div>
-          <div>Rehacer</div>
-          <div class="text-xs uppercase font-semibold opacity-60">Rehacer la acción deshecha</div>
-        </div>
-      </a>
-    </li>
-    <li class="list-row">
-      <a >
-        <div>
-          <div>Copiar</div>
-          <div class="text-xs uppercase font-semibold opacity-60">Copiar la selección al portapapeles</div>
-        </div>
-      </a>
-    </li>
-    <li class="list-row">
-      <a >
-        <div>
-          <div>Cortar</div>
-          <div class="text-xs uppercase font-semibold opacity-60">Cortar la selección al portapapeles</div>
-        </div>
-      </a>
-    </li>
-    <li class="list-row">
-      <a>
-        <div>
-          <div>Pegar</div>
-          <div class="text-xs uppercase font-semibold opacity-60">Pegar desde el portapapeles</div>
-        </div>
-      </a>
-    </li>
-    <li class="list-row">
-      <a>
-        <div>
-          <div>Buscar/Reemplazar</div>
-          <div class="text-xs uppercase font-semibold opacity-60">Buscar un texto y reemplazarlo</div>
-        </div>
-      </a>
-    </li>
-    <li class="list-row">
-      <a>
-        <div>
-          <div>Seleccionar todo</div>
-          <div class="text-xs uppercase font-semibold opacity-60">Seleccionar todo el contenido del editor</div>
+          <div>Exportar</div>
+          <div class="text-xs uppercase font-semibold opacity-60">Exportar a pdf</div>
         </div>
       </a>
     </li>
   }
   @if(modelo()==3){
     <li class="list-row">
-      <a>
-        <div>
-          <div>Mostrar/Ocultar Sidebar</div>
-          <div class="text-xs uppercase font-semibold opacity-60">Mostrar u ocultar el panel lateral de archivos</div>
-        </div>
-      </a>
-    </li>
-    <li class="list-row">
-      <a>
+      <a (click)="togglePreview()">
         <div>
           <div>Mostrar/Ocultar Preview</div>
           <div class="text-xs uppercase font-semibold opacity-60">Alternar entre editor Markdown y vista previa HTML</div>
@@ -118,7 +44,7 @@
       </a>
     </li>
     <li class="list-row">
-      <a>
+      <a (click)="toggleTheme()">
         <div>
           <div>Tema claro/oscuro</div>
           <div class="text-xs uppercase font-semibold opacity-60">Cambiar entre tema claro y oscuro</div>
@@ -130,48 +56,10 @@
         <div>
           <div>Zoom/Fuente</div>
           <div class="text-xs uppercase font-semibold opacity-60">Ajustar el tamaño de la fuente del editor y preview</div>
-        </div>
-      </a>
-    </li>
-  }
-  @if(modelo()==4){
-    <li class="list-row">
-      <a>
-        <div>
-          <div>Autoguardado</div>
-          <div class="text-xs uppercase font-semibold opacity-60">Activar o desactivar el autoguardado</div>
-        </div>
-      </a>
-    </li>
-    <li class="list-row">
-      <a>
-        <div>
-          <div>Ruta de archivos</div>
-          <div class="text-xs uppercase font-semibold opacity-60">Configurar la carpeta por defecto de archivos</div>
-        </div>
-      </a>
-    </li>
-    <li class="list-row">
-      <a>
-        <div>
-          <div>Atajos de teclado</div>
-          <div class="text-xs uppercase font-semibold opacity-60">Personalizar atajos de teclado</div>
-        </div>
-      </a>
-    </li>
-    <li class="list-row">
-      <a>
-        <div>
-          <div>Integraciones</div>
-          <div class="text-xs uppercase font-semibold opacity-60">Integrar servicios externos (Git, nube, etc.)</div>
-        </div>
-      </a>
-    </li>
-    <li class="list-row">
-      <a>
-        <div>
-          <div>Idioma</div>
-          <div class="text-xs uppercase font-semibold opacity-60">Cambiar el idioma de la interfaz</div>
+          <div class="flex flex-col">
+            <button class="btn btn-sm btn-primary-content mt-2" (click)="upFont()">Subir</button>
+            <button class="btn btn-sm btn-primary-content mt-2" (click)="downFont()">Bajar</button>
+          </div>
         </div>
       </a>
     </li>

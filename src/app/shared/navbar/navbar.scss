@@ -11,17 +11,6 @@ Areal Alien ❥ 雷克斯
 -*-~*~-*-*-~*~-*-*-~*~* |
 - */
 nav {
-    --primary: 237, 94%, 81%;
-    --background: 266, 16%, 92%;
-    --background-secondary: 256, 12%, 12%;
-    --background-secondary-dark: 256, 10%, 10%;
-    --background-secondary-light: 257, 11%, 16%;
-    --text-primary: 0, 0%, 0%;
-    /* Colors */
-    --black: 0, 0%, 0%;
-    --white: 0, 0%, 100%;
-    --quite-gray: 0, 0%, 50%;
-    --grooble: 10, 28%, 93%;
     /* Sizes */
     --heading-large: 5.6rem;
     --heading-medium: 3.6rem;
@@ -49,9 +38,7 @@ nav {
 html, body {
     margin: 0;
     width: 100%;
-    color: hsl(var(--text-primary));
     font-family: var(--font-main);
-    background-color: hsl(var(--background));
     -webkit-font-smoothing: antialiased;
     scroll-behavior: smooth;
     box-sizing: border-box;
@@ -98,12 +85,8 @@ p {
 }
 /* Links */
 a {
-    color: hsla(var(--primary), 1);
     font-size: var(--paragraph);
     text-decoration: underline;
-}
-a:visited {
-    color: hsla(var(--primary), .5);
 }
 
 /* =========
@@ -113,7 +96,6 @@ a:visited {
 button {
     padding: .8em 1.2em;
     border: 1px solid hsl(var(--black));
-    background-color: hsl(var(--background));
     font-size: var(--paragraph);
     cursor: pointer;
     outline: none;
@@ -148,7 +130,6 @@ fieldset {
 input {
     padding: .8em 1.2em;
     font-size: var(--paragraph);
-    background-color: hsl(var(--grooble));
     border: 2px solid hsl(var(--grooble));
     outline: none;
 }
@@ -156,7 +137,6 @@ textarea {
     padding: .8em 1.2em;
     font-size: var(--paragraph);
     font-family: var(--font-main);
-    background-color: hsl(var(--grooble));
     border: 2px solid hsl(var(--grooble));
     outline: none;
 }
@@ -259,7 +239,6 @@ select {
     width: 5em;
     height: 100vh;
     position: fixed;
-    background-color: hsl(var(--background-secondary));
     transition: width .35s cubic-bezier(var(--transition-main), 1);
     overflow-y: auto;
     overflow-x: hidden;
@@ -267,15 +246,8 @@ select {
 #navbar:hover {
     width: 16em;
 }
-#navbar::-webkit-scrollbar-track {
-    background-color: hsl(var(--background-secondary));
-}
 #navbar::-webkit-scrollbar {
     width: 8px;
-    background-color: hsl(var(--background-secondary));
-}
-#navbar::-webkit-scrollbar-thumb {
-    background-color: hsl(var(--primary));
 }
 .navbar-items {
     margin: 0;
@@ -292,9 +264,6 @@ select {
 .navbar-logo > .navbar-item-inner {
     width: calc(5rem - 8px);
 }
-.navbar-logo > .navbar-item-inner:hover {
-    background-color: transparent;
-}
 .navbar-logo > .navbar-item-inner > svg {
     height: 2em;
     fill: hsl(var(--white));
@@ -309,13 +278,11 @@ select {
     padding: 1em 0;
     width: 100%;
     position: relative;
-    color: hsl(var(--quite-gray));
     border-radius: .25em;
     text-decoration: none;
     transition: all .2s cubic-bezier(var(--transition-main), 1);
 }
 .navbar-item-inner:hover {
-    color: hsl(var(--white));
     background: hsl(var(--background-secondary-light));
     box-shadow: 0 17px 30px -10px hsla(var(--black), .25);
 }
@@ -364,19 +331,11 @@ select {
 
 /* Selection */
 ::selection {
-    color: hsl(var(--white));
     background: hsla(var(--primary), .33);
 }
 /* Scrollbar */
-::-webkit-scrollbar-track {
-    background-color: hsl(var(--background));
-}
 ::-webkit-scrollbar {
     width: 8px;
-    background-color: hsl(var(--background));
-}
-::-webkit-scrollbar-thumb {
-    background-color: hsl(var(--primary));
 }
 
 /* ===============

@@ -1,9 +1,9 @@
-<main class="min-h-screen flex">
+<main class="min-h-screen flex flex-col md:flex-row">
   <!-- Navbar lateral -->
-  <app-navbar></app-navbar>
+  <app-navbar class="h-full w-72 bg-base-200 border-r border-black"></app-navbar>
 
   <!-- Contenido principal -->
-  <div class="ml-30 p-10 w-full">
+  <div class="flex-1 md:p-10">
     <router-outlet></router-outlet>
   </div>
 </main>

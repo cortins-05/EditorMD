@@ -1,12 +1,32 @@
-import { Injectable, signal, WritableSignal } from '@angular/core';
+import { inject, Injectable, signal, WritableSignal } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SaveAs {
 
+  route = inject(Router);
+
   contenido: WritableSignal<string> = signal(""); // Signal compartida
+  contenido2: WritableSignal<string> = signal(""); // Signal compartida
   archivoAbierto: string | null = null;
+
+
+  constructor() {
+
+    window.addEventListener('beforeunload', (event) => {
+      const hayCambios = this.contenido() !== '' || this.contenido2() !== '';
+      if (hayCambios) {
+        event.preventDefault();
+      }
+    });
+    window.addEventListener('load',()=>{
+      if(this.contenido()==''){
+        this.route.navigate(['']);
+      }
+    })
+  }
 
   guardarComo() {
     const data = this.contenido();
@@ -59,7 +79,7 @@ export class SaveAs {
     a.click();
 
     window.URL.revokeObjectURL(url);
-}
+  }
 
 
 }
