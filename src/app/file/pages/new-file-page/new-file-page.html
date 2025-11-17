@@ -2,8 +2,8 @@
   <textarea
     #editor
     [ngClass]="preview.preview()
-      ? ['textarea','textarea-ghost','focus:outline-none','overflow-y-scroll','bg-primary','text-primary-content','resize-none','md:w-1/2','text-2xl','p-4','h-[90vh]']
-      : ['textarea','textarea-ghost','focus:outline-none','overflow-y-scroll','bg-primary','text-primary-content','resize-none','md:w-full','h-[90vh]','text-2xl','p-4']"
+      ? ['textarea','textarea-ghost','focus:outline-none','overflow-y-scroll','bg-primary','text-primary-content','resize-none','md:w-1/2','text-2xl','p-4','h-[90vh]','w-full']
+      : ['textarea','textarea-ghost','focus:outline-none','overflow-y-scroll','bg-primary','text-primary-content','resize-none','w-full','h-[90vh]','text-2xl','p-4']"
     placeholder="Empieza a crear!!!"
     (keyup)="onInput($event)"
     [value]="contenido()"
